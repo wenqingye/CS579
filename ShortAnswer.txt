@@ -1,0 +1,81 @@
+Enter your responses inline below and push this file to your private GitHub
+repository.
+
+
+1. Assume I plan to use the friend_overlap function above to quantify the
+similarity of two users. E.g., because 344 is larger than 1, I conclude that
+Jill Stein and Gary Johnson are more similar than Hillary Clinton and Donald
+Trump.
+
+How is this approach misleading? How might you fix it?
+
+This approach only counts the number of common friends but doesn’t include the total number of friends each pair of users have. Two users can have few friends but most of which are common. For example, group 1, user A and B, they both have 10 friends and 5 of which are common friends. Group 2, user C and D, they both have 100 friends and 10 of which are common. Then group 1 has 33.33% of common friends and group 2 has 5.26% of common friends. Therefore, users in group 2 are more similar. However, if we just look at the number of common friends, we may conclude that users in group 1 are more similar.
+
+The similarity should be represented by the percentage of common friends not the number of common friends. The percentage of common friends cab be calculated by (common friends)/(user1’s friends+user2’s friends-common friends). This shows the overlap percentage.
+
+
+
+
+
+
+2. Looking at the output of your followed_by_hillary_and_donald function, why
+do you think this user is followed by both Hilary Clinton and Donald Trump,
+who are rivals? Do some web searches to see if you can find out more
+information.
+
+First of all, MagicJohnson is a famous basketball player so he is known by both Hillary and Donald so that he can be followed by them.
+
+MagicJohnson is followed by Hillary because he is a great supporter of Hillary. Although he greatly oppose Donald, he is a public person with millions of followers and he is open to having business with Donald. As a merchant, I think Donald won’t refuse someone that can bring fortune to him. In addition, Johnson is just a famous basketball player that doesn’t influence politics. Since Johnson is open to Donald and they are familiar with each other and have many interactions, Donald doesn’t need to offend him and all his fans.
+
+
+
+
+
+
+3. There is a big difference in how many accounts each candidate follows (Gary
+Johnson follows over 3K accounts, while Donald Trump follows less than
+50). Why do you think this is? How might that affect our analysis?
+
+Donald is one of the main candidates for the election and he is very cautious of following people. Gary Johnson is from minor party so I think he tends to interact with more people to attract attentions and be active in social media for propaganda. Compared with Donald, he needs more networking with different people and who he follows don’t affect his election that much. In addition, he is more active an dis a fan of social media.
+
+
+
+
+
+
+4. The follower graph we've collected is incomplete. To expand it, we would
+have to also collect the list of accounts followed by each of the
+friends. That is, for each user X that Donald Trump follows, we would have to
+also collect all the users that X follows. Assuming we again use the API call
+https://dev.twitter.com/rest/reference/get/friends/ids, how many requests will
+we have to make? Given how Twitter does rate limiting
+(https://dev.twitter.com/rest/public/rate-limiting), approximately how many
+minutes will it take to collect this data?
+
+For API calls, one call for each friends/ids retrieval for each person. The 4 candidates need 4 calls. They respectively have 4159, 3123, 748 and 42 friends. We can also get friend overlaps of each pair of candidate and only 2 people are followed by 3 candidates according to most common friends. So the total number of separate friends they have is 4159+3123+748+42-349-12-10-9-8-1+2=7685. For each of these friends, we need to request their friends, so the number of requests we need is 7685. The total number of requests should be 4+7685=7689. We can only have 15 requests per 15min window, so we need int(7689/15)=512 windows and 512*15=7680min to collect all data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
