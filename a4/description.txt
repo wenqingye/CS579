@@ -1,0 +1,16 @@
+CS 579 Assignment 4
+
+In this assignment, we use TwitterAPI to collect twitter users and tweets for clustering and sentiment analysis. There are four python scripts, collect.py, cluster.py, classify.py and summarize.py. 
+
+collect.py is to collect twitter user information and tweets. I choose eight initial users and their friends as users for community detection. The eight initial users are friends of Taylor Swift and are actress, singers or writers. They are all famous people and are randomly picked. The initial users are Taylor Swift, J.K.Rowling, Emma Waston, Julianne Hough, Lucy Hale, Christian Henderson, Jessica Szohr and Gracie Gold. I collected their user id, screen name and the list of their friends. For sentiment analysis, I collect 100 most recent tweets that mention @taylorswift13 to classify them into positive, negative or neutral tweets.
+
+cluster.py is to divide the initial eight users and their friends into different communities. Since the total number of users is too large, we only include users that are followed by at least two of the initial users. During the clustering process, I use Girvan_Newman algorithm with betweenness of each edge, but I also got some single users as one cluster. These users are considered as outliers and we only consider clusters with more than one user.
+
+classify.py use afinn method to classify the sentiment of each tweet. Tweets with positive scores are classified as positive tweets, negative scores as negative tweets and zero score as neutral tweets.
+
+summarize.py writes the output into summary.txt.
+
+Conclusions:
+As we can see from the clusters_network, there are three clusters. jk_rowling and cd_henderson are each in one cluster with their friends and all other initial users are in one cluster with friends. Therefore, we can conclude that J.K.Rowling and Christian Henderson are not in the same circle as others. Then I did some research and found the reason. In the large cluster, those are actresses and singers. They are close to each other because they are all stars and many work with each other. Therefore, they have similar friends. J.K.Rowling is a writer, although she has connections with may actors that worked with before and some stars in the large cluster also follows her, she has different social networks with those actors and singers because they have different jobs. Their friends are very different. As for Christian Henderson, he is followed by Taylor Swift maybe because that he worked together with Taylor Swift. Since he has fewer followers than other people, I can guess that he is not that famous as others. Therefore, his social network is different from others. Other people in the large cluster have many friends in common, so they are highly correlated with each other and in a large community with actors and singers.
+
+For sentiment analysis, most tweets are classified as neutral and only few as negative. This is because most people that mention Taylor Swift do not have a specific emotion. While for tweets that have emotion, most are positive. This may be that Taylor Swift is a famous singer and people mentions her are possibly her fans and likes her, so they write positive tweets about her.

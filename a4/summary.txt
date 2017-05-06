@@ -1,0 +1,40 @@
+Number of users collected:
+
+There are 8 initial users collected.
+All friends of these users are also collected for future analysis.
+taylorswift13 has 245 friends.
+jk_rowling has 411 friends.
+EmmaWatson has 330 friends.
+juliannehough has 275 friends.
+lucyhale has 604 friends.
+cd_henderson has 156 friends.
+jessicaszohr has 244 friends.
+GraceEGold has 646 friends.
+
+Number of messages collected:
+
+For sentiment analysis, we collected 100 tweets that mentioned Tayloe Swift, which is the maximum number of tweets we coulc collect.
+
+Number of communities discovered:
+
+We cluster all initial users and their friends in to different communities and exclude users that followed by less than two initial users and outliers.
+Outliers are those points that clustered as singleton.
+There are 3 communities
+
+Average number of users per community: 36
+
+Number of instances per class found:
+
+There are three classes for sentiment analysis.
+The positive class has 31 instances
+The negative class has 13 instances
+The neutral class has 56 instances
+
+One example from each class:
+
+Positive example:
+@taylorswift13 Watch it with me baby heart. My dear sweet love. I love you.❤️™💋
+Negative example:
+Keep streaming at https://t.co/QsPFkLCY4B #np @taylorswift13 - I Know You Were Trouble, next @jtimberlake - Can't Stop The Feeling
+Neutral example:
+RT @Drake: #SwiftGains 😂😂😂 @taylorswift13 @applemusic. https://t.co/Uvk0DmMFsE
