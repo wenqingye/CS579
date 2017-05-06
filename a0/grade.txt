@@ -1,0 +1,16 @@
+Grade: 35.00/35.00
+
+1 Deduction(s):
+
+--------------
+#1: 35.00 points
+Failing test: cannot import a0/a0.py
+  File "students/wye8/a0/a0.py", line 41
+
+    %matplotlib inline
+
+    ^
+
+SyntaxError: invalid syntax
+--------------
+
